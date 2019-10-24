@@ -1,0 +1,40 @@
+<html>
+<body class="myBody">
+<form action="../fEd/writeToFile.php" method="post">
+	<div class="flex-container">
+	  <label>Line 1: </label><input type="text" name="l1" class="textbox"><br>
+	</div>
+	<div class="flex-container">
+	  <label>Line 2: </label><input type="text" name="l2" class="textbox"><br>
+	</div>
+	<div class="flex-container">
+	  <label>Line 3: </label><input type="text" name="l3" class="textbox"><br>
+	</div>
+  <input type="submit" value="Submit" class="myButton">
+</form>
+</body>
+<style>
+
+
+@media only screen and (max-device-width: 480px){
+  .myBody, .textbox{
+	font-size:50pt;
+  }
+  .textbox{
+	flex: 1;
+  }
+  .flex-container{
+	display: flex;
+  }
+  .myButton{
+	font-size: 50pt;
+	width: 50%;
+	margin: 25%;
+	padding: 10%;
+	margin-top: 10%;
+  }
+  html{
+	overflow: hidden;
+  }
+}
+</html>
