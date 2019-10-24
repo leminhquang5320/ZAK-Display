@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- MESSAGE BODY AND RETRIEVER /-->
+<html>
+<body class="cBody">
+<div class="cDiv">
+	
+
+<p id="l1" align="center"></p>
+<p id="l2" align="center"></p>
+<p id="l3" align="center"></p>
+
+<script>
+var plines;
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+		if(plines != this.responseText){
+			var lines = this.responseText.split("*&*#");
+			document.getElementById('l1').innerHTML = lines[0];
+			document.getElementById('l2').innerHTML = lines[1];
+			document.getElementById('l3').innerHTML = lines[2];
+			plines = this.responseText;
+		}
+    }
+  };
+  xhttp.open("POST", "lines.txt", true);
+  xhttp.send();
+}
+window.onload=loadDoc;
+
+var updatePage = function () {
+	loadDoc();
+   	setTimeout(updatePage, 1000);
+};
+setTimeout(updatePage,1000);
+</script>
+</div>
+</body>
+
+<style>
+ html{
+	overflow: hidden;
+  }
+.cBody{
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.cDiv{
+    display: table-cell;
+    vertical-align:middle;
+    }
+p{
+	margin:0;
+	padding:0;
+}
+#l1{
+font-size:80pt;
+font-weight:bolder;
+}
+#l2{
+font-size:60pt;
+font-weight:bold;
+}
+#l3{
+font-size:50pt;
+font-weight:normal;
+padding:5%;
+}
+
+</style>
+
+
+</html>
